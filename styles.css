@@ -67,4 +67,4 @@ body{background:var(--black);color:var(--white)}
 .gallery-row{display:flex;gap:14px}
 .gallery-row .gallery-item{flex:var(--r) 1 0;aspect-ratio:var(--r);min-height:0;min-width:0}
 .gallery-item img,.gallery-item:hover img{filter:grayscale(1) contrast(1.05)}
-@media(max-width:680px){.gallery-grid{display:block;columns:2;column-gap:8px}.gallery-row{display:contents}.gallery-row .gallery-item{display:block;break-inside:avoid;margin:0 0 8px;width:100%}}
+@media(max-width:680px){.gallery-grid,.gallery-row{gap:8px}.gallery-row{flex-wrap:wrap}.gallery-row .gallery-land{flex-basis:100%;order:-1}}
