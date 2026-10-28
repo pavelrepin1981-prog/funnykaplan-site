@@ -68,3 +68,4 @@ body{background:var(--black);color:var(--white)}
 .gallery-row .gallery-item{flex:var(--r) 1 0;aspect-ratio:var(--r);min-height:0;min-width:0}
 .gallery-item img,.gallery-item:hover img{filter:grayscale(1) contrast(1.05)}
 @media(max-width:680px){.gallery-grid,.gallery-row{gap:8px}.gallery-row{flex-wrap:wrap}.gallery-row .gallery-land{flex-basis:100%;order:-1}}
+.hero-motion{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%;filter:saturate(.78);opacity:0;transition:opacity 1.4s ease;pointer-events:none}.hero-motion.is-playing{opacity:1}
