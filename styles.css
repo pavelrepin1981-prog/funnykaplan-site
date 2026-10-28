@@ -16,3 +16,14 @@
 .hero-bottom{justify-content:flex-end}.recognition-grid h2.display{font-size:clamp(38px,5vw,72px);line-height:.9}
 @media(max-width:680px){.recognition-grid h2.display{font-size:clamp(38px,10vw,58px)}}
 .footer-middle a{display:flex;align-items:center;gap:clamp(14px,4vw,42px);white-space:nowrap}@media(max-width:680px){.footer-middle a{align-items:flex-start;flex-direction:column;gap:8px}}
+.display-long{font-size:clamp(46px,6.4vw,96px);line-height:.88}
+.hero-awards{position:absolute;z-index:1;right:var(--gutter);bottom:clamp(82px,11vh,130px);width:min(300px,28vw);padding:4px 18px;background:rgba(10,10,9,.42);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition-delay:.36s}
+.hero-awards a:last-child{border-bottom:0}
+.hero-awards a{display:block;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.35);color:var(--white);text-decoration:none;font:11px var(--mono);letter-spacing:.045em;transition:color .2s,padding .3s}
+.hero-awards a:hover{color:var(--acid);padding-left:10px}
+.booking-actions .booking-button,.booking-resource{height:72px;background:transparent;border:1px solid var(--black);font:700 clamp(17px,1.7vw,22px) var(--sans);letter-spacing:-.06em}
+.booking-actions .booking-button{background:var(--acid);border-color:var(--acid)}
+.booking-actions .booking-button:hover{background:#e4ff72}
+.booking-resource:hover{background:rgba(17,17,15,.06)}
+@media(max-width:680px){.display-long{font-size:clamp(36px,10.5vw,60px)}.hero{flex-direction:column;align-items:stretch;justify-content:flex-end}.hero-copy{width:100%;padding-bottom:22px}.hero-awards{position:relative;right:auto;bottom:auto;width:auto;margin:0 var(--gutter) 78px}.hero-awards a{font-size:9px;padding:13px 0}.booking-actions .booking-button,.booking-resource{height:58px;font-size:18px}}
+.booking-actions .booking-label{font:inherit;letter-spacing:inherit}
