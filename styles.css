@@ -62,3 +62,9 @@ body{background:var(--black);color:var(--white)}
 .booking-row .format-no,.booking-row .format-desc{color:rgba(255,255,255,.52)}
 .booking-row.featured{color:var(--black)}
 .booking-row.featured .format-no,.booking-row.featured .format-desc{color:rgba(17,17,15,.58)}
+/* gallery: justified rows, whole photos, black and white */
+.gallery-grid{display:flex;flex-direction:column;gap:14px}
+.gallery-row{display:flex;gap:14px}
+.gallery-row .gallery-item{flex:var(--r) 1 0;aspect-ratio:var(--r);min-height:0;min-width:0}
+.gallery-item img,.gallery-item:hover img{filter:grayscale(1) contrast(1.05)}
+@media(max-width:680px){.gallery-grid{display:block;columns:2;column-gap:8px}.gallery-row{display:contents}.gallery-row .gallery-item{display:block;break-inside:avoid;margin:0 0 8px;width:100%}}
