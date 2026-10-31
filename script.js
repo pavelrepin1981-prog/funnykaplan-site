@@ -108,8 +108,39 @@ async function startHeroMotion(video) {
   play();
 }
 
+// High-quality single file (Dropbox) first; if it doesn't start within a few seconds, use the light pieces.
+function startHeroHq(video) {
+  const portrait = window.innerHeight > window.innerWidth;
+  const url = portrait ? video.dataset.hqPhone : video.dataset.hqDesktop;
+  if (!url || navigator.connection?.saveData) return Promise.reject(new Error('no hq video'));
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    const fail = () => {
+      if (settled) return;
+      settled = true;
+      video.removeAttribute('src');
+      video.load();
+      reject(new Error('hq video did not start'));
+    };
+    const timer = setTimeout(fail, 8000);
+    video.addEventListener('playing', () => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      video.classList.add('is-playing');
+      resolve();
+    }, { once: true });
+    video.addEventListener('error', () => { clearTimeout(timer); fail(); }, { once: true });
+    video.preload = 'auto';
+    video.src = url;
+    video.play().catch(() => {});
+  });
+}
+
 if (heroMotion) {
-  const go = () => startHeroMotion(heroMotion).catch(() => heroMotion.classList.remove('is-playing'));
+  const go = () => startHeroHq(heroMotion)
+    .catch(() => startHeroMotion(heroMotion))
+    .catch(() => heroMotion.classList.remove('is-playing'));
   if (document.readyState === 'complete') go();
   else window.addEventListener('load', go, { once: true });
 }
