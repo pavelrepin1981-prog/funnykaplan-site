@@ -210,7 +210,7 @@ h1, h2, h3, p { margin: 0; }
 .band:not(.band-carbon) .tile { box-shadow: var(--keyline); }
 
 /* Метрики */
-.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .metric { padding: 32px 28px 30px; display: flex; flex-direction: column; gap: 14px; min-height: 196px; justify-content: flex-start; }
 .metric b {
   font-family: var(--font-display); font-weight: 600;
@@ -514,7 +514,7 @@ input[type="date"].field::-webkit-calendar-picker-indicator { filter: invert(1);
 @media (max-width: 820px) {
   .nav-links { display: none; }
   .nav-inner { justify-content: space-between; }
-  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .feature-grid { grid-template-columns: 1fr; }
   .feature-wide { grid-template-columns: 1fr; }
   .feature-wide img { min-height: 0; aspect-ratio: 4 / 3; height: auto; }
@@ -533,6 +533,7 @@ input[type="date"].field::-webkit-calendar-picker-indicator { filter: invert(1);
   .buy-cluster .capsule { width: 100%; justify-content: center; }
   .metrics { gap: 10px; }
   .metric { padding: 22px 18px; min-height: 160px; }
+  .metric b { font-size: clamp(30px, 9vw, 48px); }
   .metric span { font-size: 14px; }
   .formats { grid-template-columns: 1fr; }
   .formats .format-hit .format-img { aspect-ratio: 4 / 3; }
