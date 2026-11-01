@@ -432,6 +432,8 @@ input[type="date"].field::-webkit-calendar-picker-indicator { filter: invert(1);
 .form-error { color: #ff6961; font-size: 14px; }
 .form-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
 .form-actions .pill { flex: 1 1 200px; }
+.form-alt { flex: 1 1 100%; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; }
+.form-alt .link { background: none; border: 0; padding: 4px 0; font: inherit; font-size: 14px; letter-spacing: -0.224px; cursor: pointer; }
 .form-hint { color: var(--ash); font-size: 14px; }
 .form-hint a { color: var(--link); white-space: nowrap; }
 
@@ -530,7 +532,7 @@ input[type="date"].field::-webkit-calendar-picker-indicator { filter: invert(1);
   .hero-content { padding-bottom: 72px; }
   .buy-cluster .capsule { width: 100%; justify-content: center; }
   .metrics { gap: 10px; }
-  .metric { padding: 22px 18px; min-height: 160px; }
+  .metric { padding: 22px 18px; min-height: 160px; justify-content: flex-start; }
   .metric span { font-size: 14px; }
   .formats { grid-template-columns: 1fr; }
   .formats .format-hit .format-img { aspect-ratio: 4 / 3; }

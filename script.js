@@ -77,8 +77,9 @@ $$('[data-play-promo]').forEach((btn) => {
   });
 });
 
-// Фон hero: сначала фото, после загрузки страницы — видео с Dropbox
+// Фон hero: фото, а поверх него как можно раньше — видео с Dropbox
 // (вертикальное для телефона, горизонтальное для экрана). Фото остаётся, пока видео не пошло.
+// Не ждём загрузки всей страницы: шрифт и фото ниже первого экрана задерживали старт на секунды.
 const heroVideo = $('.hero-video');
 function startHeroVideo() {
   if (reduceMotion || navigator.connection?.saveData) return;
@@ -91,21 +92,17 @@ function startHeroVideo() {
     entry.isIntersecting ? heroVideo.play().catch(() => {}) : heroVideo.pause();
   }).observe(heroVideo);
 }
-if (document.readyState === 'complete') startHeroVideo();
-else window.addEventListener('load', startHeroVideo, { once: true });
+startHeroVideo();
 
 /* ===== Репертуар и «мой сет-лист» ===== */
-// Хиты, с которых список начинается — дальше по алфавиту, как в xlsx
-const FEATURED = ['ГРУППА КРОВИ', 'ТУЧИ', 'IT\'S MY LIFE', 'ЛЮБИ МЕНЯ ЛЮБИ', 'ВЕЧНО МОЛОДОЙ', 'ОРАНЖЕВОЕ НАСТРОЕНИЕ',
-  'SMELLS LIKE TEEN SPIRIT', 'ЧУЖИЕ ГУБЫ', 'ТЕКИЛА ЛЮБОВЬ', 'СТЮАРДЕССА ПО ИМЕНИ ЖАННА', 'PRETTY WOMAN',
-  'РЫБА (МОЕЙ МЕЧТЫ)', 'ЭТОТ ГОРОД САМЫЙ ЛУЧШИЙ', 'ЛЕТЯЩЕЙ ПОХОДКОЙ'];
-const rank = (s) => { const i = FEATURED.indexOf(s.t); return i === -1 ? FEATURED.length : i; };
+// Песни по алфавиту названия: сначала русские, потом зарубежные
+const byTitle = (a, b) => a.t.localeCompare(b.t, 'ru');
 const songs = (window.SONGS || []).map((s, i) => ({
   ...s,
   id: i,
   en: /[A-Z]/.test(s.t) && !/[А-ЯЁ]/i.test(s.t),
 }));
-const ordered = [...songs].sort((a, b) => rank(a) - rank(b) || a.id - b.id);
+const ordered = [...songs].sort(byTitle);
 const picked = new Set();
 let filter = 'all';
 let format = 'all';
@@ -216,9 +213,11 @@ $$('[data-format]').forEach((a) => a.addEventListener('click', () => {
   form.elements.format.value = a.dataset.format;
 }));
 
-/* ===== Заявка: собираем сообщение и отправляем в мессенджер ===== */
-let channel = 'whatsapp';
-$$('[data-channel]', form).forEach((btn) => btn.addEventListener('click', () => { channel = btn.dataset.channel; }));
+/* ===== Заявка: собираем сообщение и отправляем в WhatsApp ===== */
+// Telegram и MAX не принимают текст в ссылке на личный чат — эти кнопки просто открывают чат, без проверки формы
+$$('[data-chat]', form).forEach((btn) => btn.addEventListener('click', () => {
+  window.open(btn.dataset.chat === 'max' ? MAX : TELEGRAM, '_blank', 'noopener');
+}));
 
 function formatDate(value) {
   if (!value) return '';
@@ -226,7 +225,7 @@ function formatDate(value) {
   return `${d}.${m}.${y}`;
 }
 
-form.addEventListener('submit', async (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   const f = form.elements;
   const error = $('#formError');
@@ -247,23 +246,11 @@ form.addEventListener('submit', async (e) => {
   if (f.guests.value) lines.push(`Гостей: ~${f.guests.value}`);
   if (picked.size) {
     lines.push('', 'Наш сет-лист:');
-    [...picked].forEach((id) => lines.push(`— ${songs[id].a} – ${songs[id].t}`));
+    [...picked].map((id) => songs[id]).sort(byTitle).forEach((s) => lines.push(`— ${s.a} – ${s.t}`));
   }
   lines.push('', `Меня зовут ${f.name.value.trim()}.`);
   const text = lines.join('\n');
-
-  if (channel === 'whatsapp') {
-    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-    return;
-  }
-  // Telegram и MAX не принимают текст в ссылке на личный чат: копируем заявку в буфер,
-  // открываем чат, человеку остаётся вставить и отправить
-  const name = channel === 'max' ? 'MAX' : 'Telegram';
-  const copied = navigator.clipboard?.writeText(text).then(() => true, () => false) ?? Promise.resolve(false);
-  window.open(channel === 'max' ? MAX : TELEGRAM, '_blank', 'noopener');
-  toast((await copied)
-    ? `Заявка скопирована — вставьте её в чат ${name} и отправьте.`
-    : `Откроем ${name} — напишите дату и формат, ответим быстро.`);
+  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
 });
 
 /* ===== Мобильная липкая кнопка: видна после hero, прячется у формы ===== */
