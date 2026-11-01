@@ -211,7 +211,7 @@ h1, h2, h3, p { margin: 0; }
 
 /* Метрики */
 .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.metric { padding: 32px 28px 30px; display: flex; flex-direction: column; gap: 14px; min-height: 196px; justify-content: flex-end; }
+.metric { padding: 32px 28px 30px; display: flex; flex-direction: column; gap: 14px; min-height: 196px; justify-content: flex-start; }
 .metric b {
   font-family: var(--font-display); font-weight: 600;
   font-size: clamp(48px, 5vw, 64px); line-height: 1; letter-spacing: -0.01em;
@@ -532,7 +532,7 @@ input[type="date"].field::-webkit-calendar-picker-indicator { filter: invert(1);
   .hero-content { padding-bottom: 72px; }
   .buy-cluster .capsule { width: 100%; justify-content: center; }
   .metrics { gap: 10px; }
-  .metric { padding: 22px 18px; min-height: 160px; justify-content: flex-start; }
+  .metric { padding: 22px 18px; min-height: 160px; }
   .metric span { font-size: 14px; }
   .formats { grid-template-columns: 1fr; }
   .formats .format-hit .format-img { aspect-ratio: 4 / 3; }
