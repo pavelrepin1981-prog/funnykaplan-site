@@ -262,3 +262,16 @@ let bookingVisible = false;
 const syncSticky = () => sticky.classList.toggle('show', !heroVisible && !bookingVisible);
 new IntersectionObserver(([entry]) => { heroVisible = entry.isIntersecting; syncSticky(); }).observe(hero);
 new IntersectionObserver(([entry]) => { bookingVisible = entry.isIntersecting; syncSticky(); }, { threshold: 0.1 }).observe(booking);
+
+/* ===== Короткие ссылки (/show, /price…) ведут на /#раздел. Фото выше по странице
+   догружаются и сдвигают вёрстку — поэтому после загрузки ещё раз доводим до раздела ===== */
+if (location.hash.length > 1) {
+  const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (target) {
+    $$('.reveal', target).forEach((el) => el.classList.add('in'));
+    const settle = () => target.scrollIntoView({ block: 'start', behavior: 'instant' });
+    requestAnimationFrame(settle);
+    if (document.readyState === 'complete') setTimeout(settle, 300);
+    else window.addEventListener('load', () => { settle(); setTimeout(settle, 400); }, { once: true });
+  }
+}

@@ -33,7 +33,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://dl.dropboxusercontent.com" crossorigin />
   <link rel="dns-prefetch" href="https://dl.dropboxusercontent.com" />
-  <link rel="stylesheet" href="styles.css?v=20261102-3" />
+  <link rel="stylesheet" href="styles.css?v=20261103" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -66,8 +66,8 @@
         <img src="assets/img/logo-c.png" alt="Фанни Каплан" width="120" height="120" />
       </a>
       <nav class="nav-links" aria-label="Разделы">
-        <a href="#show">Шоу</a>
-        <a href="#formats">Форматы</a>
+        <a class="nav-key" href="#show">Шоу</a>
+        <a class="nav-key" href="#price">Стоимость</a>
         <a href="#songs">Репертуар</a>
         <a href="#story">История</a>
         <a href="#faq">Вопросы</a>
@@ -141,7 +141,7 @@
     </section>
 
     <!-- ПОЧЕМУ ТАНЦУЮТ -->
-    <section class="band">
+    <section class="band" id="why">
       <div class="wrap">
         <p class="eyebrow reveal">Почему у нас не сидят</p>
         <h2 class="h-section reveal">Плейлист пишет зал.<br><span class="muted">Мы просто его слышим.</span></h2>
@@ -187,11 +187,11 @@
       </div>
     </section>
 
-    <!-- ФОРМАТЫ -->
-    <section class="band" id="formats">
+    <!-- СТОИМОСТЬ -->
+    <section class="band" id="price">
       <div class="wrap">
         <div class="panel">
-          <p class="eyebrow reveal">Форматы и цены</p>
+          <p class="eyebrow reveal">Стоимость</p>
           <h2 class="h-panel reveal">Пять форматов. Один принцип —<br>чтобы танцевали все.</h2>
           <p class="panel-lead reveal">Цены указаны за выступление в Екатеринбурге. Подскажем, какой состав подойдёт под площадку, бюджет и количество гостей.</p>
 
@@ -338,79 +338,6 @@
       </div>
     </section>
 
-    <!-- ГАЛЕРЕЯ -->
-    <section class="band gallery-band" aria-label="Фотографии">
-      <div class="wrap">
-        <p class="eyebrow reveal">Сцена и закулисье</p>
-        <h2 class="h-section reveal">Харизма прилагается.</h2>
-      </div>
-      <div class="gallery" id="gallery">
-        <img src="assets/img/guitar-blue.jpg" alt="Гитарист в синем свете" loading="lazy" />
-        <img src="assets/img/peek.jpg" alt="Музыканты выглядывают из-за стены" loading="lazy" />
-        <img src="assets/img/drums-red.jpg" alt="Барабанщик в красном свете" loading="lazy" />
-        <img src="assets/img/roof-bw.jpg" alt="Чёрно-белое фото группы на крыше" loading="lazy" />
-        <img src="assets/img/bass-blue.jpg" alt="Бас-гитарист на фоне LED-экрана" loading="lazy" />
-        <img src="assets/img/jump.jpg" alt="Гитарист в прыжке" loading="lazy" />
-        <img src="assets/img/live-warm.jpg" alt="Вокалист поёт в тёплом свете" loading="lazy" />
-        <img src="assets/img/duo-blue.jpg" alt="Двое музыкантов на сцене" loading="lazy" />
-        <img src="assets/img/singer-bw.jpg" alt="Вокалист с гитарой, чёрно-белое фото" loading="lazy" />
-        <img src="assets/img/drums-blue.jpg" alt="Барабанщик в синем свете" loading="lazy" />
-        <img src="assets/img/bass-bw.jpg" alt="Бас-гитарист, чёрно-белое фото" loading="lazy" />
-        <img src="assets/img/sunset.jpg" alt="Силуэты группы на закате" loading="lazy" />
-      </div>
-      <div class="wrap gallery-nav">
-        <button class="round" type="button" data-scroll="-1" aria-label="Назад">‹</button>
-        <button class="round" type="button" data-scroll="1" aria-label="Вперёд">›</button>
-      </div>
-    </section>
-
-    <!-- ИСТОРИЯ -->
-    <section class="band" id="story">
-      <div class="wrap story">
-        <div class="story-head">
-          <p class="eyebrow reveal">История</p>
-          <h2 class="h-section reveal">Случайное имя.<br><span class="muted">Неслучайная группа.</span></h2>
-          <p class="story-lead reveal">Название придумали на бегу: в машине по радио пел Трофимов — «Жаль, промахнулась Фанни Каплан». Так и записали. Никакого подтекста — только хиты. А дальше было так.</p>
-          <img class="story-img reveal" src="assets/img/guitars-cross.jpg" alt="Музыканты скрестили гитары" loading="lazy" />
-        </div>
-        <ol class="timeline">
-          <li class="reveal"><b>2009</b><div><h3>Abbey Road, 40 лет</h3><p>Уральский Битлз-клуб зовёт екатеринбургских музыкантов сыграть легендарный альбом в библиотеке Белинского. После концерта посыпались приглашения — так 26 сентября родилась группа.</p></div></li>
-          <li class="reveal"><b>2014</b><div><h3>Олимпийский старт</h3><p>Играем на одной из городских сцен на открытии Олимпиады-2014 — весь город болеет и поёт вместе с нами.</p><h3>Коллектив года</h3><p>Победа в Первой городской премии Екатеринбурга. На пятилетии с нами на сцене — друзья из PlanB, Primetime и «0 калорий», а поклонники дарят коллаж из фото всех лет.</p></div></li>
-          <li class="reveal"><b>2015</b><div><h3>Ещё одно признание</h3><p>Победа в конкурсе кавер-групп Maximilian’s Band. Sobaka.ru пишет о выходе на всероссийский уровень, нас зовут хедлайнить День города в Ревде.</p></div></li>
-          <li class="reveal"><b>2020</b><div><h3>Живьём даже онлайн</h3><p>Стрим-концерты для зрителей, live-сессия для Like FM. Танцевали дома — но танцевали.</p></div></li>
-          <li class="reveal"><b>2025</b><div><h3>Песни Льда и Пламени</h3><p>Открываем хоккейный сезон на Ледовой арене. На 16-летие — концерт в трёх отделениях: акустическом, духовом и электрическом.</p></div></li>
-          <li class="reveal"><b>2026</b><div><h3>17 лет — и только разгоняемся</h3><p>Новое промо, новые песни в сет-листе и сотни вечеров, которые ещё впереди. Возможно, один из них — ваш.</p></div></li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ПРИЗНАНИЕ -->
-    <section class="band band-carbon">
-      <div class="wrap">
-        <p class="eyebrow reveal">Что о нас пишут</p>
-        <h2 class="h-section reveal">Нас советуют<br><span class="muted">те, кто видел вживую.</span></h2>
-        <div class="quotes">
-          <figure class="tile quote reveal">
-            <blockquote>«Популярность коллектива растёт с каждым днём, их название на слуху».</blockquote>
-            <figcaption>Sobaka.ru · «Группа Funny Kaplan: не промах»</figcaption>
-          </figure>
-          <figure class="tile quote reveal">
-            <blockquote>«Кавер-группа 15-летней выдержки. Только хорошо прожаренные хиты!»</blockquote>
-            <figcaption>Artist.ru · рейтинг 5.0</figcaption>
-          </figure>
-          <figure class="tile quote reveal">
-            <blockquote>«Обязательно сыграют вашу любимую композицию, даже если её нет в программе».</blockquote>
-            <figcaption>ProStars.org · концертное агентство</figcaption>
-          </figure>
-        </div>
-        <div class="awards reveal">
-          <a href="https://wedding-awards-ural.ru/nominees/18516" target="_blank" rel="noreferrer">Wedding Awards Ural ›</a>
-          <a href="https://top100awards.ru/fanni-kaplan" target="_blank" rel="noreferrer">TOP 100 Awards ›</a>
-          <a href="https://top50ural.ru/funnykaplan" target="_blank" rel="noreferrer">TOP 50 Ural ›</a>
-        </div>
-      </div>
-    </section>
-
     <!-- БРОНИРОВАНИЕ -->
     <section class="band" id="booking">
       <div class="wrap">
@@ -425,8 +352,8 @@
               <li><b>3</b><span>Задаток 50% — дата закреплена за вами</span></li>
             </ol>
             <div class="docs reveal">
-              <a class="link" href="assets/docs/tech-rider.xlsx" download="Фанни Каплан — техрайдер.xlsx">Технический райдер ↓</a>
-              <a class="link" href="assets/docs/playlist.xlsx" download="Фанни Каплан — плейлист.xlsx">Плейлист ↓</a>
+              <a class="pill pill-blue pill-sm" href="assets/docs/tech-rider.xlsx" download="Фанни Каплан — техрайдер.xlsx">Технический райдер ↓</a>
+              <a class="pill pill-blue pill-sm" href="assets/docs/playlist.xlsx" download="Фанни Каплан — плейлист.xlsx">Плейлист ↓</a>
             </div>
           </div>
 
@@ -475,8 +402,81 @@
       </div>
     </section>
 
+    <!-- ГАЛЕРЕЯ -->
+    <section class="band gallery-band" id="photo" aria-label="Фотографии">
+      <div class="wrap">
+        <p class="eyebrow reveal">Сцена и закулисье</p>
+        <h2 class="h-section reveal">Харизма прилагается.</h2>
+      </div>
+      <div class="gallery" id="gallery">
+        <img src="assets/img/guitar-blue.jpg" alt="Гитарист в синем свете" loading="lazy" />
+        <img src="assets/img/peek.jpg" alt="Музыканты выглядывают из-за стены" loading="lazy" />
+        <img src="assets/img/drums-red.jpg" alt="Барабанщик в красном свете" loading="lazy" />
+        <img src="assets/img/roof-bw.jpg" alt="Чёрно-белое фото группы на крыше" loading="lazy" />
+        <img src="assets/img/bass-blue.jpg" alt="Бас-гитарист на фоне LED-экрана" loading="lazy" />
+        <img src="assets/img/jump.jpg" alt="Гитарист в прыжке" loading="lazy" />
+        <img src="assets/img/live-warm.jpg" alt="Вокалист поёт в тёплом свете" loading="lazy" />
+        <img src="assets/img/duo-blue.jpg" alt="Двое музыкантов на сцене" loading="lazy" />
+        <img src="assets/img/singer-bw.jpg" alt="Вокалист с гитарой, чёрно-белое фото" loading="lazy" />
+        <img src="assets/img/drums-blue.jpg" alt="Барабанщик в синем свете" loading="lazy" />
+        <img src="assets/img/bass-bw.jpg" alt="Бас-гитарист, чёрно-белое фото" loading="lazy" />
+        <img src="assets/img/sunset.jpg" alt="Силуэты группы на закате" loading="lazy" />
+      </div>
+      <div class="wrap gallery-nav">
+        <button class="round" type="button" data-scroll="-1" aria-label="Назад">‹</button>
+        <button class="round" type="button" data-scroll="1" aria-label="Вперёд">›</button>
+      </div>
+    </section>
+
+    <!-- ИСТОРИЯ -->
+    <section class="band" id="story">
+      <div class="wrap story">
+        <div class="story-head">
+          <p class="eyebrow reveal">История</p>
+          <h2 class="h-section reveal">Случайное имя.<br><span class="muted">Неслучайная группа.</span></h2>
+          <p class="story-lead reveal">Название придумали на бегу: в машине по радио пел Трофимов — «Жаль, промахнулась Фанни Каплан». Так и записали. Никакого подтекста — только хиты. А дальше было так.</p>
+          <img class="story-img reveal" src="assets/img/guitars-cross.jpg" alt="Музыканты скрестили гитары" loading="lazy" />
+        </div>
+        <ol class="timeline">
+          <li class="reveal"><b>2009</b><div><h3>Abbey Road, 40 лет</h3><p>Уральский Битлз-клуб зовёт екатеринбургских музыкантов сыграть легендарный альбом в библиотеке Белинского. После концерта посыпались приглашения — так 26 сентября родилась группа.</p></div></li>
+          <li class="reveal"><b>2014</b><div><h3>Олимпийский старт</h3><p>Играем на одной из городских сцен на открытии Олимпиады-2014 — весь город болеет и поёт вместе с нами.</p><h3>Коллектив года</h3><p>Победа в Первой городской премии Екатеринбурга. На пятилетии с нами на сцене — друзья из PlanB, Primetime и «0 калорий», а поклонники дарят коллаж из фото всех лет.</p></div></li>
+          <li class="reveal"><b>2015</b><div><h3>Ещё одно признание</h3><p>Победа в конкурсе кавер-групп Maximilian’s Band. Sobaka.ru пишет о выходе на всероссийский уровень, нас зовут хедлайнить День города в Ревде.</p></div></li>
+          <li class="reveal"><b>2020</b><div><h3>Живьём даже онлайн</h3><p>Стрим-концерты для зрителей, live-сессия для Like FM. Танцевали дома — но танцевали.</p></div></li>
+          <li class="reveal"><b>2025</b><div><h3>Песни Льда и Пламени</h3><p>Открываем хоккейный сезон на Ледовой арене. На 16-летие — концерт в трёх отделениях: акустическом, духовом и электрическом.</p></div></li>
+          <li class="reveal"><b>2026</b><div><h3>17 лет — и только разгоняемся</h3><p>Новое промо, новые песни в сет-листе и сотни вечеров, которые ещё впереди. Возможно, один из них — ваш.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ПРИЗНАНИЕ -->
+    <section class="band band-carbon" id="press">
+      <div class="wrap">
+        <p class="eyebrow reveal">Что о нас пишут</p>
+        <h2 class="h-section reveal">Нас советуют<br><span class="muted">те, кто видел вживую.</span></h2>
+        <div class="quotes">
+          <figure class="tile quote reveal">
+            <blockquote>«Популярность коллектива растёт с каждым днём, их название на слуху».</blockquote>
+            <figcaption>Sobaka.ru · «Группа Funny Kaplan: не промах»</figcaption>
+          </figure>
+          <figure class="tile quote reveal">
+            <blockquote>«Кавер-группа 15-летней выдержки. Только хорошо прожаренные хиты!»</blockquote>
+            <figcaption>Artist.ru · рейтинг 5.0</figcaption>
+          </figure>
+          <figure class="tile quote reveal">
+            <blockquote>«Обязательно сыграют вашу любимую композицию, даже если её нет в программе».</blockquote>
+            <figcaption>ProStars.org · концертное агентство</figcaption>
+          </figure>
+        </div>
+        <div class="awards reveal">
+          <a href="https://wedding-awards-ural.ru/nominees/18516" target="_blank" rel="noreferrer">Wedding Awards Ural ›</a>
+          <a href="https://top100awards.ru/fanni-kaplan" target="_blank" rel="noreferrer">TOP 100 Awards ›</a>
+          <a href="https://top50ural.ru/funnykaplan" target="_blank" rel="noreferrer">TOP 50 Ural ›</a>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ -->
-    <section class="band band-carbon" id="faq">
+    <section class="band" id="faq">
       <div class="wrap faq-wrap">
         <div>
           <p class="eyebrow reveal">Вопросы</p>
@@ -550,11 +550,11 @@
   </footer>
 
   <!-- Мобильная липкая кнопка -->
-  <a class="sticky-cta pill pill-blue" href="#booking" id="stickyCta">Проверить свободную дату</a>
+  <div class="sticky-cta" id="stickyCta"><a class="pill pill-blue" href="#booking">Проверить свободную дату</a></div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="songs.js?v=20261102-3"></script>
-  <script src="script.js?v=20261102-3"></script>
+  <script src="songs.js?v=20261103"></script>
+  <script src="script.js?v=20261103"></script>
 </body>
 </html>
