@@ -105,7 +105,7 @@ const songs = (window.SONGS || []).map((s, i) => ({
 const ordered = [...songs].sort(byTitle);
 const picked = new Set();
 let filter = 'all';
-let format = 'all';
+let format = 'Стандарт';
 let query = '';
 const list = $('#songList');
 
